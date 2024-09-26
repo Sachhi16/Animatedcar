@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+  <title>Move the car</title>
+</head>
+<body style="background-image: url('background.jpg')">
+  <center>
+    <h1 style="color: white">
+      Please use the navigation buttons to move the car
+    </h1>
+    <br />
+  </center>
+  <form>
+    <center>
+      <input type="button" value="Start" onclick="start()" />
+      <input type="button" value="Stop" onclick="stop()" />
+
+      <input type="button" value="Reverse" onclick="reverse()" />
+
+      <input type="button" value="Restart" onclick="restart()" />
+    </center>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <img id="myimg" src="car1.png" width="600px" height="400px" />
+  </form>
+  <script>
+    var animation;
+    function restart() {
+      img = document.getElementById("myimg");
+      img.style.position = "absolute";
+      img.style.left = "0px";
+    }
+
+    function start() {
+      img.style.left = parseInt(img.style.left) + 10 + "px";
+      animation = setTimeout(start, 50);
+    }
+    function stop() {
+      clearTimeout(animation);
+      img.style.left = "paused";
+    }
+    function reverse() {
+      img.style.left = parseInt(img.style.left) + -10 + "px";
+      animation = setTimeout(reverse, 50);
+    }
+  </script>
+</body>
